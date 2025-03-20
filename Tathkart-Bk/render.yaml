@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: kiranaapp-backend
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: node server/src/index.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_USER
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_PORT
+        value: 5432
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false 
